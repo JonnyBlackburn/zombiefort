@@ -5,8 +5,12 @@ using System.Text;
 
 namespace Assets.Scripts.GameEvents
 {
-    public class CharacterEvent : GameEvent
+    public enum GameEventType
     {
-
+        BuildingEvent,
+        CharacterEvent,
+        CombatEvent,
+        ResourceEvent,
+        Any
     }
 }

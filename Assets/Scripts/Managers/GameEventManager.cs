@@ -11,37 +11,32 @@ namespace Assets.Scripts.Managers
 {
     public class GameEventManager : MonoBehaviour
     {
-        private List<Type> GameEvents;
+        private List<GameEvent> GameEvents;
 
         void Start()
         {
             GameEvents = typeof(GameEvent).Assembly.GetTypes().Where(t =>
                 t.IsClass && t.BaseType == typeof(GameEvent)
-                && Attribute.IsDefined(t, typeof(SerializableAttribute))).ToList();
+                && Attribute.IsDefined(t, typeof(SerializableAttribute))).Cast<GameEvent>().ToList();
         }
 
-        public void StartEvent(Type gameEventType = null)
+        public void StartRandomEvent(GameEventType gameEventType = GameEventType.Any)
         {
-            if (gameEventType != null)
+            List<GameEvent> filteredGameEvents = GameEvents;
+
+            if (gameEventType != GameEventType.Any)
             {
-                
+                filteredGameEvents = filteredGameEvents.Where(t => t.GetType().ToString() == gameEventType.ToString()).ToList();
             }
+
+            gameObject.AddComponent(GetRandomGameEvent(filteredGameEvents).GetType().ToString());
         }
 
-        public void AddEventToGameObject<T>(GameObject gameObject) where T : GameEvent
+        private GameEvent GetRandomGameEvent(List<GameEvent> gameEvents)
         {
-            gameObject.AddComponent<T>();
+            Random random = new Random();
+            return gameEvents[random.Next(gameEvents.Count)];
         }
 
-        private List<T> GetGameEventsByType<T>() where T : GameEvent
-        {
-            return GameEvents.OfType<T>().ToList();
-        }
-
-        private GameEvent GetGameEventByRandom(List<Type> gameEvents)
-        {
-            Random randNum = new Random();
-            GameEvent gameEvent = (GameEvent) gameEvents[randNum.Next(gameEvents.Count)];
-        }
     }
 }

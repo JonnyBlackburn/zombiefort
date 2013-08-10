@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.GUIComponents.Notifications
 {
-    public class Notification : MonoBehaviour
+    public class Notification : GUIBase
     {
         public string Title;
         public string Body;
@@ -21,13 +21,11 @@ namespace Assets.Scripts.GUIComponents.Notifications
         void Awake()
         {
             windowRect = new Rect(Screen.width / 2 - 150, 150, 300, 100);
+            isImportant = true;
         }
 
         private void CreateWindow(int id)
         {
-<<<<<<< HEAD
-            //GUILayout.TextArea(Body ?? "Undefined", )
-=======
             GUILayout.TextArea(Body ?? "Undefined", 200);
             GUILayout.Box(ImageType);
             switch (NotificationButtons)
@@ -49,12 +47,6 @@ namespace Assets.Scripts.GUIComponents.Notifications
                     }
                     break;
             }
-        }
-
-        void Close()
-        {
-            
->>>>>>> Adding notification window popups.
         }
     }
 }

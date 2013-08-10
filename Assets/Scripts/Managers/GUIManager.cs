@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.Scripts.GameEvents;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -42,7 +43,7 @@ namespace Assets.Scripts.Managers
             }
         }
 
-        public void ShowNotification()
+        public void ShowNotification(GameEvent gameEvent)
         {
                         
         }
