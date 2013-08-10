@@ -5,6 +5,6 @@ public class Building : MonoBehaviour {
 
     void OnMouseDown()
     {
-        GameManager.GetInstance.resourceManger.updateResource(ResourceManager.WOOD, -10);
+        GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.WOOD, -10);
     }
 }

@@ -1,3 +1,4 @@
+using System.Resources;
 using Assets.Scripts.Managers;
 using UnityEngine;
 using System.Collections;
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public ResourceManager ResourceManger { get; private set;}
-    public NotificationManager NotificationManager { get; private set; }
+    public GUIManager NotificationManager { get; private set; }
     public GameEventManager GameEventManager { get; private set; }
 
     private GameManager() {}
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
         if (_instance != null) Destroy(gameObject);
 
         GameEventManager = gameObject.AddComponent<GameEventManager>();
-        NotificationManager = gameObject.AddComponent<NotificationManager>();
+        NotificationManager = gameObject.AddComponent<GUIManager>();
         ResourceManger = gameObject.AddComponent<ResourceManager>();
 
         DontDestroyOnLoad(gameObject);
