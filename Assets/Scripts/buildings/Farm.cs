@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Farm : Building {
+public class Farm : WorkableBuilding {
 
 	void Start()
 	{

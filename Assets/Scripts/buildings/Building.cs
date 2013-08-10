@@ -40,6 +40,7 @@ public class Building : MonoBehaviour
     public void UpgradeBuilding()
     {
         currentBuildingState++;
+        transform.localScale *= 2;
         //play next frame of animation
     }
 }

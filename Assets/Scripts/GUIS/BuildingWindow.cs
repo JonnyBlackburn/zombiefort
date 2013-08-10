@@ -3,9 +3,8 @@ using System.Collections;
 
 public class BuildingWindow : GUIBase {
 
-    int width = 400;
+    float width;
     Building selectedBuilding;
-    Person selectedWorker;
 
     public override void openView(object data)
     {
@@ -14,6 +13,7 @@ public class BuildingWindow : GUIBase {
 
 	void OnGUI()
     {
+        width = Screen.width * 0.35f;
         GUILayout.BeginArea(new Rect(Screen.width - width, 0, width, Screen.height));
         //GUILayout.Box("", GUILayout.Height(Screen.height));
         GUILayout.BeginVertical("box", GUILayout.Height(Screen.height));
@@ -30,7 +30,8 @@ public class BuildingWindow : GUIBase {
 
     void WorkableBuildingGUI()
     {
-        if (!selectedWorker)
+        WorkableBuilding building = selectedBuilding as WorkableBuilding;
+        if (!building.selectedWorker)
         {
             if (GUILayout.Button("Assign person"))
             {
@@ -39,7 +40,7 @@ public class BuildingWindow : GUIBase {
         }
         else
         {
-            GUILayout.Box(selectedWorker.name);
+            GUILayout.Box(building.selectedWorker.name);
         }
     }
 
@@ -61,7 +62,12 @@ public class BuildingWindow : GUIBase {
 
     public void assignWorker(Person person)
     {
-        selectedWorker = person;
+        WorkableBuilding building = selectedBuilding as WorkableBuilding;
+        if (building.selectedWorker)
+        {
+            building.selectedWorker.isAssignedToBuilding = false;
+        }
+        building.selectedWorker = person;
         person.isAssignedToBuilding = true;
     }
 }

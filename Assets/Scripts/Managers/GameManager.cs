@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GUIManager GuiManager { get; private set; }
     public PeopleManager PeopleManager { get; private set; }
 
+    //prefabs
+    public GameObject person;
+
     private GameManager() {}
 
     void Awake()
