@@ -28,14 +28,32 @@ public class Building : MonoBehaviour
         metalCosts.Add(200);
     }
 
-    void initialisePlayerPositions()
+    public void initialisePlayerPositions()
     {
-        int totalPlayerCount = GameManager.GetInstance.PeopleManager.getAllPeople().Length;
+        Person[] allPeople = GameManager.GetInstance.PeopleManager.getAllPeople();
+        for (var i = 0; i < allPeople.Length; i++)
+        {
+            allPeople[i].transform.parent = null;
+        }
+        foreach(Transform child in transform.FindChild("positioner"))
+        {
+            Destroy(child.gameObject);
+        }
+        int currentCount = 0;
         int columns = 5;
         int row = 0;
-        for (int curCol = 0; curCol < columns; curCol++)
+        for(int curRow = 0; curRow < 100; curRow++)
         {
-            //GameObject spawnPos = Instantiate(Resources.)
+            for (int curCol = 0; curCol < columns; curCol++)
+            {
+                GameObject spawnPos = Instantiate(Resources.Load("positioner"), Vector3.zero, Quaternion.identity) as GameObject;
+                spawnPos.transform.parent = transform.FindChild("positioner");
+                spawnPos.transform.localPosition = new Vector3(curCol * 1.1f, 0, curRow * 1.1f);
+                allPeople[currentCount].transform.position = spawnPos.transform.position;
+                allPeople[currentCount].transform.parent = allPeople[currentCount].initialParent = spawnPos.transform;
+                currentCount++;
+                if (currentCount >= allPeople.Length) return;
+            }
         }
     }
 

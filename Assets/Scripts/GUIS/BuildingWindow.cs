@@ -45,7 +45,13 @@ public class BuildingWindow : GUIBase {
         }
         else
         {
+            GUILayout.BeginHorizontal();
             GUILayout.Box(building.selectedWorker.name);
+            if (GUILayout.Button("Unassign person"))
+            {
+                 building.assignWorker(null);
+            }
+            GUILayout.EndHorizontal();
         }
     }
 
