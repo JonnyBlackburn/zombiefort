@@ -17,25 +17,43 @@ namespace Assets.Scripts.Managers
     {
         Random random = new Random();
 
+        private String[] BuildingEvents = {};
+        private String[] CombatEvents = {"ZombieHorde"};
+        private String[] ResourceEvents = {};
+        private String[] CharacterEvents = {"FoundSurvivor"};
+
         void Start()
         {
         }
 
-        public void StartRandomEvent<T>()
+        public void StartRandomEvent(GameEventType gameEventType = GameEventType.Any)
         {
-            List<String> values = Enum.GetValues(typeof (T)).Cast<String>().ToList();
-            gameObject.AddComponent(values.ElementAt(random.Next(values.Count)));
-        }
+            string gameEvent = "";
 
-        public void StartRandomEvent()
-        {
-            List<String> values = new List<String>();
-            values.AddRange(Enum.GetValues(typeof (BuildingEvents)).Cast<String>().ToList());
-            values.AddRange(Enum.GetValues(typeof (CharacterEvents)).Cast<String>().ToList());
-            values.AddRange(Enum.GetValues(typeof (ResourceEvents)).Cast<String>().ToList());
-            values.AddRange(Enum.GetValues(typeof (CombatEvents)).Cast<String>().ToList());
-
-            gameObject.AddComponent(values.ElementAt(random.Next(values.Count)));
+            switch (gameEventType)
+            {
+                case GameEventType.Any:
+                    var combinedArrays = new List<String>();
+                    combinedArrays.AddRange(BuildingEvents);
+                    combinedArrays.AddRange(CombatEvents);
+                    combinedArrays.AddRange(ResourceEvents);
+                    combinedArrays.AddRange(CharacterEvents);
+                    gameEvent = combinedArrays.ElementAt(random.Next(combinedArrays.Count));
+                    break;
+                case GameEventType.BuildingEvent:
+                    gameEvent = BuildingEvents[random.Next(BuildingEvents.Length)];
+                    break;
+                case GameEventType.CharacterEvent:
+                    gameEvent = CharacterEvents[random.Next(CharacterEvents.Length)];
+                    break;
+                case GameEventType.CombatEvent:
+                    gameEvent = CombatEvents[random.Next(CombatEvents.Length)];
+                    break;
+                case GameEventType.ResourceEvent:
+                    gameEvent = ResourceEvents[random.Next(ResourceEvents.Length)];
+                    break;
+            }
+            gameObject.AddComponent(gameEvent);
         }
 
     }
