@@ -15,9 +15,14 @@ namespace Assets.Scripts.Managers
 
         void Start()
         {
-            GameEvents = typeof(GameEvent).Assembly.GetTypes().Where(t =>
-                t.IsClass && t.BaseType == typeof(GameEvent)
-                && Attribute.IsDefined(t, typeof(SerializableAttribute))).Cast<GameEvent>().ToList();
+            GameEvents = typeof(GameEvent).Assembly.GetTypes().Where(t => 
+                t.IsClass &&
+                t.IsSubclassOf(typeof(GameEvent))).Cast<GameEvent>().ToList();
+        }
+
+        public void StartEvent(GameEvent gameEvent)
+        {
+            gameObject.AddComponent(gameEvent.GetType().ToString());
         }
 
         public void StartRandomEvent(GameEventType gameEventType = GameEventType.Any)
@@ -29,13 +34,15 @@ namespace Assets.Scripts.Managers
                 filteredGameEvents = filteredGameEvents.Where(t => t.GetType().ToString() == gameEventType.ToString()).ToList();
             }
 
-            gameObject.AddComponent(GetRandomGameEvent(filteredGameEvents).GetType().ToString());
+            GameEvent gameEvent = GetRandomGameEvent(filteredGameEvents);
+
+            gameObject.AddComponent(gameEvent.GetType().ToString());
         }
 
         private GameEvent GetRandomGameEvent(List<GameEvent> gameEvents)
         {
             Random random = new Random();
-            return gameEvents[random.Next(gameEvents.Count)];
+            return gameEvents.ElementAt(random.Next(gameEvents.Count));
         }
 
     }

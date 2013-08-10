@@ -9,12 +9,14 @@ namespace Assets.Scripts.GameEvents
 
     public class GameEvent : MonoBehaviour
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
+        public virtual string Title { get; set; }
+        public virtual string Description { get; private set; }
+
+        public virtual bool ShowNotificationOnStart { get { return true; } }
 
         void Start()
         {
-            GameManager.GetInstance.NotificationManager.ShowNotification(this);
+            if(ShowNotificationOnStart) GameManager.GetInstance.NotificationManager.ShowNotification(this);
         }
     }
 }
