@@ -12,11 +12,14 @@ namespace Assets.Scripts.Managers
     {
         ArrayList openViews = new ArrayList();
 
-        public void openGUI(string gui, object data = null)
+        public void openGUI(string gui, bool closeOpenWindows, object data = null)
         {
-            foreach(GUIBase openView in openViews) 
+            if (closeOpenWindows)
             {
-                if (!openView.isImportant) closeGUI(openView.GetType().Name);
+                foreach(GUIBase openView in openViews) 
+                {
+                    if (!openView.isImportant) closeGUI(openView.GetType().Name);
+                }
             }
             gameObject.AddComponent(gui);
             GUIBase newView = GetComponent(gui) as GUIBase;

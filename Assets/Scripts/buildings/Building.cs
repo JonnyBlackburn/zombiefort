@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Building : MonoBehaviour 
 {
+    public bool isWorkableBuilding = false;
     int currentBuildingState = 0;
     public int buildingHealth = 100;
-    ArrayList woodCosts = new ArrayList();
-    ArrayList metalCosts = new ArrayList();
+    protected ArrayList woodCosts = new ArrayList();
+    protected ArrayList metalCosts = new ArrayList();
 
     void Start()
     {
@@ -26,8 +27,7 @@ public class Building : MonoBehaviour
 
     void OnMouseDown()
     {
-        //GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.WOOD, -10);
-        GameManager.GetInstance.GuiManager.openGUI("BuildingWindow", this);
+        GameManager.GetInstance.GuiManager.openGUI("BuildingWindow", false, this);
     }
 
     public bool CanAffordNexPhase()
