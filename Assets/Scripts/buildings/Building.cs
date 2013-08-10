@@ -14,7 +14,7 @@ public class Building : MonoBehaviour
         initBuildingCosts();
     }
 
-    void initBuildingCosts()
+    protected virtual void initBuildingCosts()
     {
         woodCosts.Add(30);
         woodCosts.Add(100);

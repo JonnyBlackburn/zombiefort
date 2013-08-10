@@ -15,14 +15,15 @@ public class BuildingWindow : GUIBase {
     {
         width = Screen.width * 0.35f;
         GUILayout.BeginArea(new Rect(Screen.width - width, 0, width, Screen.height));
-        //GUILayout.Box("", GUILayout.Height(Screen.height));
         GUILayout.BeginVertical("box", GUILayout.Height(Screen.height));
         if (GUILayout.Button("close", GUILayout.Width(50)))
         {
             GameManager.GetInstance.GuiManager.closeGUI(this.GetType().Name);
+            if (GameManager.GetInstance.GuiManager.hasOpenView("PeopleWindow")) GameManager.GetInstance.GuiManager.closeGUI("PeopleWindow");
+
         }
         if (selectedBuilding.isWorkableBuilding) WorkableBuildingGUI();
-        else NonWorkableBuildingGUI();
+        else GeneralBuildingGui();
         
         GUILayout.EndVertical();
         GUILayout.EndArea();
@@ -30,6 +31,7 @@ public class BuildingWindow : GUIBase {
 
     void WorkableBuildingGUI()
     {
+        GeneralBuildingGui();
         WorkableBuilding building = selectedBuilding as WorkableBuilding;
         if (!building.selectedWorker)
         {
@@ -44,7 +46,7 @@ public class BuildingWindow : GUIBase {
         }
     }
 
-    void NonWorkableBuildingGUI()
+    void GeneralBuildingGui()
     {
         if (selectedBuilding.CanAffordNexPhase())
         {

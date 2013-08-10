@@ -34,6 +34,15 @@ namespace Assets.Scripts.Managers
             guiComponent.Close();
         }
 
+        public bool hasOpenView(string gui)
+        {
+            foreach (GUIBase openView in openViews)
+            {
+                if (gui == openView.GetType().Name) return true;
+            }
+            return false;
+        }
+
         void removeViewFromOpen(string viewName)
         {
             foreach (GUIBase view in openViews)
