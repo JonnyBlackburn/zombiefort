@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public ResourceManager ResourceManger { get; private set;}
     public GUIManager NotificationManager { get; private set; }
     public GameEventManager GameEventManager { get; private set; }
+    public GUIManager GuiManager { get; private set; }
 
     private GameManager() {}
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         GameEventManager = gameObject.AddComponent<GameEventManager>();
         NotificationManager = gameObject.AddComponent<GUIManager>();
         ResourceManger = gameObject.AddComponent<ResourceManager>();
+        GuiManager = gameObject.AddComponent<GUIManager>();
 
         DontDestroyOnLoad(gameObject);
     }

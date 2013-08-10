@@ -25,7 +25,7 @@ namespace Assets.Scripts.GUIComponents.Notifications
 
         private void CreateWindow(int id)
         {
-            GUILayout.TextArea(Body ?? "Undefined", )
+            //GUILayout.TextArea(Body ?? "Undefined", )
         }
     }
 }
