@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameEventManager GameEventManager { get; private set; }
     public GUIManager GuiManager { get; private set; }
     public PeopleManager PeopleManager { get; private set; }
+    public DayManager DayManager { get; private set; }
 
     //prefabs
     public GameObject person;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         ResourceManger = gameObject.AddComponent<ResourceManager>();
         GuiManager = gameObject.AddComponent<GUIManager>();
         PeopleManager = gameObject.AddComponent<PeopleManager>();
+        DayManager = gameObject.AddComponent<DayManager>();
 
         DontDestroyOnLoad(gameObject);
     }
