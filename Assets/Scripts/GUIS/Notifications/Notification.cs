@@ -25,7 +25,36 @@ namespace Assets.Scripts.GUIComponents.Notifications
 
         private void CreateWindow(int id)
         {
+<<<<<<< HEAD
             //GUILayout.TextArea(Body ?? "Undefined", )
+=======
+            GUILayout.TextArea(Body ?? "Undefined", 200);
+            GUILayout.Box(ImageType);
+            switch (NotificationButtons)
+            {
+                case NotificationButtons.Ok:
+                    if(GUILayout.Button("Ok"))
+                    {
+                        Close();
+                    }
+                    break;
+                case NotificationButtons.OkCancel:
+                    if(GUILayout.Button("Ok"))
+                    {
+                        Close();
+                    }
+                    if (GUILayout.Button("Cancel"))
+                    {
+                        Close();
+                    }
+                    break;
+            }
+        }
+
+        void Close()
+        {
+            
+>>>>>>> Adding notification window popups.
         }
     }
 }
