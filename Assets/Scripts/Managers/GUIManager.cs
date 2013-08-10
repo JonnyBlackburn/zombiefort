@@ -71,6 +71,7 @@ namespace Assets.Scripts.Managers
         public void ShowNotification(GameEvent gameEvent)
         {
             Debug.Log("Show Notification called for " + gameEvent.Title);
+
         }
     }
 }

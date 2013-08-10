@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Resources : MonoBehaviour {
+public class GameResourcesWindow : MonoBehaviour {
 
     void OnGUI()
     {

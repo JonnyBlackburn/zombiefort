@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PeopleManager : MonoBehaviour {
-
-    Person[] allPeople = new Person[0];
+public class PeopleManager : MonoBehaviour
+{
+    private Person[] allPeople;
 
     void Start()
     {
@@ -18,6 +18,13 @@ public class PeopleManager : MonoBehaviour {
     Person[] getAllPeople()
     {
         return GameObject.FindObjectsOfType(typeof(Person)) as Person[];
+    }
+
+    public GameObject Spawn(string resourceName, Vector3 position, Quaternion rotation)
+    {
+        GameObject gameObject = Instantiate(Resources.Load(resourceName), position, rotation) as GameObject;
+        updateAllPeople();
+        return gameObject;
     }
 
     public Person[] getAllNonWorkingPeople()

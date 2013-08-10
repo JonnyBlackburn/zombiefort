@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using Assets.Scripts.GameEvents;
-using Assets.Scripts.GameEvents.BuildingEvent;
-using Assets.Scripts.GameEvents.CharacterEvent;
-using Assets.Scripts.GameEvents.CombatEvent;
-using Assets.Scripts.GameEvents.ResourceEvent;
 using UnityEngine;
 using Random = System.Random;
 

@@ -1,52 +1,70 @@
 ﻿using Assets.Scripts.GUI.Notifications;
+using Assets.Scripts.GameEvents;
 using UnityEngine;
 
-namespace Assets.Scripts.GUIComponents.Notifications
+namespace Assets.Scripts.GUIS.Notifications
 {
     public class Notification : GUIBase
     {
-        public string Title;
-        public string Body;
-        public Texture2D ImageType;
-        public NotificationButtons NotificationButtons;
+        public GameEvent GameEvent;
+        private float width;
 
-        private Rect windowRect;
-        private Vector2 scrollPosition = Vector2.zero;
+        public override void openView(object data)
+        {
+            GameEvent = data as GameEvent;
+        }
 
         void OnGUI()
         {
-            windowRect = GUILayout.Window(0, windowRect, CreateWindow, Title ?? "Undefined");
-        }
-
-        void Awake()
-        {
-            windowRect = new Rect(Screen.width / 2 - 150, 150, 300, 100);
-            isImportant = true;
-        }
-
-        private void CreateWindow(int id)
-        {
-            GUILayout.TextArea(Body ?? "Undefined", 200);
-            GUILayout.Box(ImageType);
-            switch (NotificationButtons)
+            width = Screen.width * 0.35f;
+            GUILayout.BeginArea(new Rect(Screen.width - width, 0, width, Screen.height));
+            //GUILayout.Box("", GUILayout.Height(Screen.height));
+            GUILayout.BeginVertical("box", GUILayout.Height(Screen.height));
+            GUILayout.Label(GameEvent.Title);
+            GUILayout.Label(GameEvent.Description);
+            GUILayout.Box(GameEvent.Icon);
+            switch (GameEvent.NotificationButtons)
             {
                 case NotificationButtons.Ok:
-                    if(GUILayout.Button("Ok"))
+                    if (GUILayout.Button("Ok"))
                     {
+                        GameEvent.Ok();
                         Close();
                     }
                     break;
                 case NotificationButtons.OkCancel:
-                    if(GUILayout.Button("Ok"))
+                    if (GUILayout.Button("Ok"))
                     {
+                        GameEvent.Ok();
                         Close();
                     }
                     if (GUILayout.Button("Cancel"))
                     {
+                        GameEvent.Cancel();
+                        Close();
+                    }
+                    break;
+                case NotificationButtons.YesNo:
+                    if (GUILayout.Button("Yes"))
+                    {
+                        GameEvent.Yes();
+                        Close();
+                    }
+                    if (GUILayout.Button("No"))
+                    {
+                        GameEvent.No();
                         Close();
                     }
                     break;
             }
+
+            GUILayout.EndVertical();
+            GUILayout.EndArea();
+        }
+
+        private void CreateWindow(int id)
+        {
+
         }
     }
 }

@@ -169,7 +169,7 @@ public class DayNightController : MonoBehaviour
         dawnDuskFog = new Color(133.0f / 255.0f, 124.0f / 255.0f, 102.0f / 255.0f);
         dayFog = new Color(180.0f / 255.0f, 208.0f / 255.0f, 209.0f / 255.0f);
         nightFog = new Color(12.0f / 255.0f, 15.0f / 255.0f, 91.0f / 255.0f);
-        Skybox[] skyboxes = Resources.FindObjectsOfTypeAll(typeof(Skybox)) as Skybox[];
+        Skybox[] skyboxes = GameResourcesWindow.FindObjectsOfTypeAll(typeof(Skybox)) as Skybox[];
         foreach (Skybox box in skyboxes)
         {
             if (box.name == "DawnDusk Skybox")
