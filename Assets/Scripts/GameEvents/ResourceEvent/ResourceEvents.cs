@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Assets.Scripts.GameEvents.ResourceEvent
 {
-    public class ResourceEvent : GameEvent
+    public enum ResourceEvents
     {
+
     }
 }

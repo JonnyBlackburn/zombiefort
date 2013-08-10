@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.GameEvents.CharacterEvent
+namespace Assets.Scripts.GameEvents.CombatEvent
 {
-    public class CharacterEvent : GameEvent
+    public enum CombatEvents
     {
-
+        ZombieHorde
     }
 }

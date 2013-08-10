@@ -4,6 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Assets.Scripts.GameEvents;
+using Assets.Scripts.GameEvents.BuildingEvent;
+using Assets.Scripts.GameEvents.CharacterEvent;
+using Assets.Scripts.GameEvents.CombatEvent;
+using Assets.Scripts.GameEvents.ResourceEvent;
 using UnityEngine;
 using Random = System.Random;
 
@@ -11,38 +15,27 @@ namespace Assets.Scripts.Managers
 {
     public class GameEventManager : MonoBehaviour
     {
-        private List<GameEvent> GameEvents;
+        Random random = new Random();
 
         void Start()
         {
-            GameEvents = typeof(GameEvent).Assembly.GetTypes().Where(t => 
-                t.IsClass &&
-                t.IsSubclassOf(typeof(GameEvent))).Cast<GameEvent>().ToList();
         }
 
-        public void StartEvent(GameEvent gameEvent)
+        public void StartRandomEvent<T>()
         {
-            gameObject.AddComponent(gameEvent.GetType().ToString());
+            List<String> values = Enum.GetValues(typeof (T)).Cast<String>().ToList();
+            gameObject.AddComponent(values.ElementAt(random.Next(values.Count)));
         }
 
-        public void StartRandomEvent(GameEventType gameEventType = GameEventType.Any)
+        public void StartRandomEvent()
         {
-            List<GameEvent> filteredGameEvents = GameEvents;
+            List<String> values = new List<String>();
+            values.AddRange(Enum.GetValues(typeof (BuildingEvents)).Cast<String>().ToList());
+            values.AddRange(Enum.GetValues(typeof (CharacterEvents)).Cast<String>().ToList());
+            values.AddRange(Enum.GetValues(typeof (ResourceEvents)).Cast<String>().ToList());
+            values.AddRange(Enum.GetValues(typeof (CombatEvents)).Cast<String>().ToList());
 
-            if (gameEventType != GameEventType.Any)
-            {
-                filteredGameEvents = filteredGameEvents.Where(t => t.GetType().ToString() == gameEventType.ToString()).ToList();
-            }
-
-            GameEvent gameEvent = GetRandomGameEvent(filteredGameEvents);
-
-            gameObject.AddComponent(gameEvent.GetType().ToString());
-        }
-
-        private GameEvent GetRandomGameEvent(List<GameEvent> gameEvents)
-        {
-            Random random = new Random();
-            return gameEvents.ElementAt(random.Next(gameEvents.Count));
+            gameObject.AddComponent(values.ElementAt(random.Next(values.Count)));
         }
 
     }

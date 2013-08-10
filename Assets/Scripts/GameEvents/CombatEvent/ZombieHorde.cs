@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.GameEvents.CombatEvent
 {
-    public class ZombieHorde : CombatEvent
+    public class ZombieHorde : GameEvent
     {
         public override string Title
         {

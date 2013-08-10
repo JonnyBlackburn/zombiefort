@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Scripts.GameEvents.CharacterEvent
 {
-    public class FoundSurvivor : CharacterEvent
+    public class FoundSurvivor : GameEvent
     {
         public override string Title
         {

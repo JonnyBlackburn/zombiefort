@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.GameEvents.CombatEvent
+namespace Assets.Scripts.GameEvents.CharacterEvent
 {
-    public class CombatEvent : GameEvent
+    public enum CharacterEvents
     {
+        FoundSurvivor
     }
 }
