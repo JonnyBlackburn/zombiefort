@@ -5,6 +5,7 @@ public class BuildingWindow : GUIBase {
 
     int width = 400;
     Building selectedBuilding;
+    Person selectedWorker;
 
     public override void openView(object data)
     {
@@ -29,9 +30,16 @@ public class BuildingWindow : GUIBase {
 
     void WorkableBuildingGUI()
     {
-        if (GUILayout.Button("Assign person"))
+        if (!selectedWorker)
         {
-            GameManager.GetInstance.GuiManager.openGUI("PeopleWindow", false);
+            if (GUILayout.Button("Assign person"))
+            {
+                GameManager.GetInstance.GuiManager.openGUI("PeopleWindow", false);
+            }
+        }
+        else
+        {
+            GUILayout.Box(selectedWorker.name);
         }
     }
 
@@ -49,5 +57,11 @@ public class BuildingWindow : GUIBase {
             GUILayout.Box("Can't afford upgrade");
         }
         GUILayout.Label("Building's health: " + selectedBuilding.buildingHealth);
+    }
+
+    public void assignWorker(Person person)
+    {
+        selectedWorker = person;
+        person.isAssignedToBuilding = true;
     }
 }

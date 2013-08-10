@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GUIManager NotificationManager { get; private set; }
     public GameEventManager GameEventManager { get; private set; }
     public GUIManager GuiManager { get; private set; }
+    public PeopleManager PeopleManager { get; private set; }
 
     private GameManager() {}
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         NotificationManager = gameObject.AddComponent<GUIManager>();
         ResourceManger = gameObject.AddComponent<ResourceManager>();
         GuiManager = gameObject.AddComponent<GUIManager>();
+        PeopleManager = gameObject.AddComponent<PeopleManager>();
 
         DontDestroyOnLoad(gameObject);
     }

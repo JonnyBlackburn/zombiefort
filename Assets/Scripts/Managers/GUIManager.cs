@@ -46,6 +46,15 @@ namespace Assets.Scripts.Managers
             }
         }
 
+        public GUIBase GetOpenView(string viewName)
+        {
+            foreach (GUIBase view in openViews)
+            {
+                if (view.GetType().Name == viewName) return view;
+            }
+            return null;
+        }
+
         public void ShowNotification(GameEvent gameEvent)
         {
                         
