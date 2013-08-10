@@ -16,9 +16,13 @@ namespace Assets.Scripts.Managers
         {
             if (closeOpenWindows)
             {
-                foreach(GUIBase openView in openViews) 
+                for(int i = openViews.Count-1; i > 0; i--)
                 {
-                    if (!openView.isImportant) closeGUI(openView.GetType().Name);
+                    GUIBase openView = openViews[i] as GUIBase;
+                    if (!openView.isImportant)
+                    {
+                        closeGUI(openView.GetType().Name);
+                    }
                 }
             }
             gameObject.AddComponent(gui);

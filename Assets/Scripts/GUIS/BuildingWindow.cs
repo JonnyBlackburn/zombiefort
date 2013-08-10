@@ -22,8 +22,11 @@ public class BuildingWindow : GUIBase {
             if (GameManager.GetInstance.GuiManager.hasOpenView("PeopleWindow")) GameManager.GetInstance.GuiManager.closeGUI("PeopleWindow");
 
         }
-        if (selectedBuilding.isWorkableBuilding) WorkableBuildingGUI();
-        else GeneralBuildingGui();
+        if (selectedBuilding)
+        {
+            if (selectedBuilding.isWorkableBuilding) WorkableBuildingGUI();
+            else GeneralBuildingGui();
+        }
         
         GUILayout.EndVertical();
         GUILayout.EndArea();

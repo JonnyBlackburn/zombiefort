@@ -27,7 +27,7 @@ public class Building : MonoBehaviour
 
     void OnMouseDown()
     {
-        GameManager.GetInstance.GuiManager.openGUI("BuildingWindow", false, this);
+        GameManager.GetInstance.GuiManager.openGUI("BuildingWindow", true, this);
     }
 
     public bool CanAffordNexPhase()
