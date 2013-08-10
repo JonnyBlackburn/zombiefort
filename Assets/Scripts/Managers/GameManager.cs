@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+    public ResourceManager resourceManger { get; private set;}
 
     private GameManager() {}
 
@@ -13,9 +14,10 @@ public class GameManager : MonoBehaviour
         if (_instance != null) Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        resourceManger = gameObject.AddComponent<ResourceManager>();
     }
 
-    public static GameManager getInstance
+    public static GameManager GetInstance
     {
         get
         {
