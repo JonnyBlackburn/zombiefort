@@ -1,10 +1,13 @@
+using Assets.Scripts.Managers;
 using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    public ResourceManager resourceManger { get; private set;}
+    public ResourceManager ResourceManger { get; private set;}
+    public NotificationManager NotificationManager { get; private set; }
+    public GameEventManager GameEventManager { get; private set; }
 
     private GameManager() {}
 
@@ -13,8 +16,11 @@ public class GameManager : MonoBehaviour
         //destroy the gameobject if we alreay have an instance of the gameManager
         if (_instance != null) Destroy(gameObject);
 
+        GameEventManager = gameObject.AddComponent<GameEventManager>();
+        NotificationManager = gameObject.AddComponent<NotificationManager>();
+        ResourceManger = gameObject.AddComponent<ResourceManager>();
+
         DontDestroyOnLoad(gameObject);
-        resourceManger = gameObject.AddComponent<ResourceManager>();
     }
 
     public static GameManager GetInstance
