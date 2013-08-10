@@ -12,12 +12,12 @@ public class Farm : WorkableBuilding {
 
     protected override void initBuildingCosts()
     {
-        woodCosts.Add(30);
-        woodCosts.Add(100);
-        woodCosts.Add(200);
-
-        metalCosts.Add(30);
-        metalCosts.Add(100);
-        metalCosts.Add(200);
+        scrapCosts.Add(30);
+        scrapCosts.Add(100);
+        scrapCosts.Add(200);
+            
+        foodCosts.Add(30);
+        foodCosts.Add(100);
+        foodCosts.Add(200);
     }
 }

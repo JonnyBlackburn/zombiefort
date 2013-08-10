@@ -5,6 +5,8 @@ public class DayManager : MonoBehaviour {
 
     int dayDuration = 5 * 60; //5 minutes
 
+    public string Time = "00:00";
+
     void StartDay()
     {
         StartCoroutine("DayTimer");
@@ -14,6 +16,7 @@ public class DayManager : MonoBehaviour {
     {
         StopCoroutine("DayTimer");
         Debug.Log("Fire end of day events");
+        GameManager.GetInstance.GameEventManager.StartRandomEvent();
     }
 
     IEnumerator DayTimer()

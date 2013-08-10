@@ -6,8 +6,10 @@ public class Building : MonoBehaviour
     public bool isWorkableBuilding = false;
     int currentBuildingState = 0;
     public int buildingHealth = 100;
-    protected ArrayList woodCosts = new ArrayList();
-    protected ArrayList metalCosts = new ArrayList();
+    protected ArrayList scrapCosts = new ArrayList();
+    protected ArrayList foodCosts = new ArrayList();
+    protected ArrayList waterCosts = new ArrayList();
+    protected ArrayList ammoCosts = new ArrayList();
 
     public GameObject[] personPositions = new GameObject[0];
 
@@ -19,13 +21,13 @@ public class Building : MonoBehaviour
 
     protected virtual void initBuildingCosts()
     {
-        woodCosts.Add(30);
-        woodCosts.Add(100);
-        woodCosts.Add(200);
+        foodCosts.Add(30);
+        foodCosts.Add(100);
+        foodCosts.Add(200);
 
-        metalCosts.Add(30);
-        metalCosts.Add(100);
-        metalCosts.Add(200);
+        foodCosts.Add(30);
+        foodCosts.Add(100);
+        foodCosts.Add(200);
     }
 
     public void initialisePlayerPositions()
@@ -65,7 +67,7 @@ public class Building : MonoBehaviour
     public bool CanAffordNexPhase()
     {
         ResourceManager resources = GameManager.GetInstance.ResourceManger;
-        if (resources.wood > (int)woodCosts[currentBuildingState] && resources.metal > (int)metalCosts[currentBuildingState]) return true;
+        if (resources.Scrap > (int)scrapCosts[currentBuildingState] && resources.Food > (int)foodCosts[currentBuildingState]) return true;
         else return false;
     }
 

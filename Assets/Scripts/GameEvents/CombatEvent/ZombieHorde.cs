@@ -22,6 +22,7 @@ namespace Assets.Scripts.GameEvents.CombatEvent
         {
             GameObject zombie = GameManager.GetInstance.PeopleManager.Spawn("Zombie", new Vector3(36, 2, -7), Quaternion.identity);
             //Camera.main.transform.LookAt(zombie.transform.position);
+            Debug.Log("Spawned Zombie!");
             
 
             base.Start();
