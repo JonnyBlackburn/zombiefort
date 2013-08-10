@@ -72,7 +72,7 @@ public class BuildingWindow : GUIBase {
         {
             building.selectedWorker.isAssignedToBuilding = false;
         }
-        building.selectedWorker = person;
+        building.assignWorker(person);
         person.isAssignedToBuilding = true;
     }
 }

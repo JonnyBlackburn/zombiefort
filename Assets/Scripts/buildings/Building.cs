@@ -9,9 +9,12 @@ public class Building : MonoBehaviour
     protected ArrayList woodCosts = new ArrayList();
     protected ArrayList metalCosts = new ArrayList();
 
+    public GameObject[] personPositions = new GameObject[0];
+
     void Start()
     {
         initBuildingCosts();
+        initialisePlayerPositions();
     }
 
     protected virtual void initBuildingCosts()
@@ -23,6 +26,17 @@ public class Building : MonoBehaviour
         metalCosts.Add(30);
         metalCosts.Add(100);
         metalCosts.Add(200);
+    }
+
+    void initialisePlayerPositions()
+    {
+        int totalPlayerCount = GameManager.GetInstance.PeopleManager.getAllPeople().Length;
+        int columns = 5;
+        int row = 0;
+        for (int curCol = 0; curCol < columns; curCol++)
+        {
+            //GameObject spawnPos = Instantiate(Resources.)
+        }
     }
 
     void OnMouseDown()

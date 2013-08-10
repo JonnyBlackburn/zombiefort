@@ -15,7 +15,7 @@ public class PeopleManager : MonoBehaviour
         allPeople = getAllPeople();
     }
 
-    Person[] getAllPeople()
+    public Person[] getAllPeople()
     {
         return GameObject.FindObjectsOfType(typeof(Person)) as Person[];
     }
