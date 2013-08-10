@@ -4,6 +4,12 @@ using System.Collections;
 public class BuildingWindow : GUIBase {
 
     int width = 400;
+    Building selectedBuilding;
+
+    public override void openView(object data)
+    {
+        selectedBuilding = data as Building;
+    }
 
 	void OnGUI()
     {
