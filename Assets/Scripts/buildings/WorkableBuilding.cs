@@ -9,6 +9,11 @@ public class WorkableBuilding : Building {
     {
         if (worker != null)
         {
+            if (selectedWorker != null)
+            {
+                selectedWorker.transform.parent = selectedWorker.initialParent;
+                selectedWorker.transform.position = selectedWorker.initialParent.position;
+            }
             worker.transform.position = personPositions[0].transform.position;
             worker.transform.parent = personPositions[0].transform;
         }
