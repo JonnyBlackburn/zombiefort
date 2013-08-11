@@ -1,13 +1,20 @@
 fileFormatVersion: 2
-guid: c76a27e9f9dde9b4198ff7be4be8839c
+guid: ea36161fd04d36449bce30b56e1894de
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
+    100002: 2nd_floor
+    100004: 2nd_roof
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Scare
+    400002: 2nd_floor
+    400004: 2nd_roof
+    2300000: 2nd_floor
+    2300002: 2nd_roof
+    3300000: 2nd_floor
+    3300002: 2nd_roof
+    4300000: 2nd_floor
+    4300002: 2nd_roof
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -25,7 +32,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: .100000001
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
