@@ -67,7 +67,7 @@ public class Building : MonoBehaviour
 
     public bool isFullyUpgraded()
     {
-        if (currentBuildingState >= scrapCosts.Count || currentBuildingState >= foodCosts.Count) return true;
+        if (currentBuildingState >= buildingPhases.Length) return true;
         else return false;
     }
 
