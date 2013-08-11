@@ -5,6 +5,8 @@ public class PeopleManager : MonoBehaviour
 {
     private Person[] allPeople;
 
+    public string[] peopleNames = { "Jacob", "Sophia", "Mason", "Emma", "Ethan", "Isabella", "Noah", "Olivia", "William", "Ava", "Liam", "Emily", "Jayden", "Abigail", "Michael", "Mia", "Alexander", "Madison", "Aiden", "Elizabeth" };
+
     void Start()
     {
         updateAllPeople();
@@ -12,12 +14,7 @@ public class PeopleManager : MonoBehaviour
 
     public void updateAllPeople()
     {
-        allPeople = getAllPeople();
-    }
-
-    public Person[] getAllPeople()
-    {
-        return GameObject.FindObjectsOfType(typeof(Person)) as Person[];
+        allPeople = GameManager.GetInstance.GetGameObjectsOfType<Person>();
     }
 
     public GameObject Spawn(string resourceName, Vector3 position, Quaternion rotation)

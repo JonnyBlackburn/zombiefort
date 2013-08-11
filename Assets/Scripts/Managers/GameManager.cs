@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 
     private GameManager() {}
 
+    public T[] GetGameObjectsOfType<T>()
+    {
+        return FindObjectsOfType(typeof(T)) as T[];
+    }
+
     void Awake()
     {
         //destroy the gameobject if we alreay have an instance of the gameManager

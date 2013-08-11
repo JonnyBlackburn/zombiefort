@@ -54,14 +54,14 @@ public class DayWindow : MonoBehaviour
 
 		if (GUILayout.Button("",logButton))
 		{
-			GameManager.GetInstance.DayManager.EndDay();
+			GameManager.GetInstance.GuiManager.openGUI("LogWindow", true);
 		}
         
         GUILayout.Space(20);
 
         if (GUILayout.Button("", popButton))
         {
-            GameManager.GetInstance.DayManager.EndDay();
+            GameManager.GetInstance.GuiManager.openGUI("PeopleWindow", true);
         }
 
         GUILayout.EndHorizontal();
