@@ -20,4 +20,9 @@ public class Farm : WorkableBuilding {
         foodCosts.Add(100);
         foodCosts.Add(200);
     }
+
+    public override void AwardResources()
+    {
+        GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.FOOD, 30);
+    }
 }

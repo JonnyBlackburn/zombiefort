@@ -7,7 +7,11 @@ public class PauseMenu : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) isOpen = !isOpen;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isOpen = !isOpen;
+            Time.timeScale = isOpen ? 0 : 1;
+        }
     }
 
     void OnGUI()

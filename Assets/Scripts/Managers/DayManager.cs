@@ -14,7 +14,14 @@ public class DayManager : MonoBehaviour {
     public void EndDay()
     {
         StopCoroutine("DayTimer");
-        Debug.Log("Fire end of day events");
+        WorkableBuilding[] buildings = GameObject.FindObjectsOfType(typeof(WorkableBuilding)) as WorkableBuilding[];
+        foreach (WorkableBuilding building in buildings)
+        {
+            if (building.selectedWorker != null)
+            {
+                building.AwardResources();
+            }
+        }
         GameManager.GetInstance.GameEventManager.StartRandomEvent();
         GameManager.GetInstance.GameTimer.totalGameSeconds = 75600; //21:00
     }

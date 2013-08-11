@@ -24,6 +24,7 @@ public class ResourceManager : MonoBehaviour {
 
     public void updateResource(string type, int amount)
     {
+        Debug.Log(type);
         switch(type)
         {
             case FOOD:

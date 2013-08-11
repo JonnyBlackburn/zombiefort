@@ -51,4 +51,9 @@ public class WorkableBuilding : Building {
         GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.FOOD, -(int)foodCosts[currentBuildingState]);
         currentBuildingState++;
     }
+
+    public virtual void AwardResources()
+    {
+    }
+
 }
