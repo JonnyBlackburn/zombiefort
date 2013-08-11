@@ -1,20 +1,40 @@
 fileFormatVersion: 2
-guid: 3c105e8623a92a24fa76c150f290dbdf
+guid: 3f8dd23ab3d3f074cb162c8fd1c58334
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: 2nd_floor
-    100004: 2nd_roof
-    400000: //RootNode
-    400002: 2nd_floor
-    400004: 2nd_roof
-    2300000: 2nd_floor
-    2300002: 2nd_roof
-    3300000: 2nd_floor
-    3300002: 2nd_roof
-    4300000: 2nd_floor
-    4300002: 2nd_roof
+    100000: Cylinder006
+    100002: Cylinder007
+    100004: Cylinder008
+    100006: Cylinder009
+    100008: Cylinder010
+    100010: Pyramid002
+    100012: //RootNode
+    400000: Cylinder006
+    400002: Cylinder007
+    400004: Cylinder008
+    400006: Cylinder009
+    400008: Cylinder010
+    400010: Pyramid002
+    400012: //RootNode
+    2300000: Cylinder006
+    2300002: Cylinder007
+    2300004: Cylinder008
+    2300006: Cylinder009
+    2300008: Cylinder010
+    2300010: Pyramid002
+    3300000: Cylinder006
+    3300002: Cylinder007
+    3300004: Cylinder008
+    3300006: Cylinder009
+    3300008: Cylinder010
+    3300010: Pyramid002
+    4300000: Cylinder007
+    4300002: Cylinder008
+    4300004: Cylinder009
+    4300006: Pyramid002
+    4300008: Cylinder010
+    4300010: Cylinder006
     9500000: //RootNode
   materials:
     importMaterials: 1
