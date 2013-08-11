@@ -78,11 +78,13 @@ public class BuildingWindow : GUIBase {
     public void assignWorker(Person person)
     {
         WorkableBuilding building = selectedBuilding as WorkableBuilding;
+        person.animation.Play("HumanFarming");
         if (building.selectedWorker)
         {
             building.selectedWorker.isAssignedToBuilding = false;
         }
         building.assignWorker(person);
         person.isAssignedToBuilding = true;
+        person.animation.Play("HumanFarming");
     }
 }

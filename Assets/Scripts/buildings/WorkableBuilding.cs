@@ -38,6 +38,7 @@ public class WorkableBuilding : Building {
             selectedWorker.transform.parent = selectedWorker.initialParent;
             selectedWorker.transform.localPosition = Vector3.zero;
             selectedWorker.isAssignedToBuilding = false;
+            selectedWorker.animation.Play("HumanBuilding");
         }
         selectedWorker = worker;
     }
