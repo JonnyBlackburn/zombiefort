@@ -1,5 +1,6 @@
 using System.Resources;
 using Assets.Scripts.Managers;
+using Assets.Scripts.Misc;
 using UnityEngine;
 using System.Collections;
 
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GUIManager GuiManager { get; private set; }
     public PeopleManager PeopleManager { get; private set; }
     public DayManager DayManager { get; private set; }
+    public GameTimer GameTimer { get; private set; }
 
     //prefabs
     public GameObject person;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         GuiManager = gameObject.AddComponent<GUIManager>();
         PeopleManager = gameObject.AddComponent<PeopleManager>();
         DayManager = gameObject.AddComponent<DayManager>();
+        GameTimer = gameObject.AddComponent<GameTimer>();
 
         DontDestroyOnLoad(gameObject);
     }

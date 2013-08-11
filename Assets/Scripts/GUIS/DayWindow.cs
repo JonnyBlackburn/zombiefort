@@ -22,11 +22,11 @@ public class DayWindow : MonoBehaviour
 
         GUILayout.BeginHorizontal();
 
-        GUILayout.Space(55);
+        GUILayout.Space(65);
 
         GUILayout.Label(GameManager.GetInstance.ResourceManger.Food.ToString(), resources);
 
-        GUILayout.Space(65);
+        GUILayout.Space(100);
 
         GUILayout.Label(GameManager.GetInstance.ResourceManger.Scrap.ToString(), resources);
 
@@ -36,21 +36,21 @@ public class DayWindow : MonoBehaviour
 
         GUILayout.BeginHorizontal();
 
-        GUILayout.Space(55);
+        GUILayout.Space(65);
 
         GUILayout.Label(GameManager.GetInstance.ResourceManger.Food.ToString(), resources);
 
-        GUILayout.Space(65);
+        GUILayout.Space(100);
 
         GUILayout.Label(GameManager.GetInstance.ResourceManger.Scrap.ToString(), resources);
 
         GUILayout.EndHorizontal();
 
-        GUILayout.Space(14);
+        GUILayout.Space(12);
 
         GUILayout.BeginHorizontal();
 
-        GUILayout.Space(14);
+        GUILayout.Space(50);
 
 		if (GUILayout.Button("",logButton))
 		{
@@ -66,12 +66,11 @@ public class DayWindow : MonoBehaviour
 
         GUILayout.EndHorizontal();
 
-
         GUILayout.BeginHorizontal();
 
-        GUILayout.Space(23);
+        GUILayout.Space(22);
 
-        GUILayout.Label(GameManager.GetInstance.DayManager.Time, clock);
+        GUILayout.Label(GameManager.GetInstance.GameTimer.GameTime, clock);
 
         GUILayout.EndHorizontal();
 
@@ -79,7 +78,7 @@ public class DayWindow : MonoBehaviour
 
         GUILayout.BeginHorizontal();
 
-        GUILayout.Space(13);
+        GUILayout.Space(45);
 
         if (GUILayout.Button("", skipButton))
         {
