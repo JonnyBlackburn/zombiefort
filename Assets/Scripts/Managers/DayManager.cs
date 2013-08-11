@@ -5,10 +5,18 @@ public class DayManager : MonoBehaviour {
 
     int dayDuration = 5 * 60; //5 minutes
 
+    private DayNightController dayNightController;
+
+    void Start()
+    {
+        dayNightController = GameManager.GetInstance.GetGameObjectsOfType<DayNightController>()[0];
+    }
+
     void StartDay()
     {
         StartCoroutine("DayTimer");
         GameManager.GetInstance.GameTimer.totalGameSeconds = 21600;
+        dayNightController.currentCycleTime = 0;
     }
 
     public void EndDay()
@@ -24,6 +32,7 @@ public class DayManager : MonoBehaviour {
         }
         GameManager.GetInstance.GameEventManager.StartRandomEvent();
         GameManager.GetInstance.GameTimer.totalGameSeconds = 75600; //21:00
+        dayNightController.currentCycleTime = (float)(dayNightController.dayCycleLength * 0.75);
     }
 
     IEnumerator DayTimer()
