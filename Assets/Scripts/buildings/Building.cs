@@ -21,9 +21,9 @@ public class Building : MonoBehaviour
 
     protected virtual void initBuildingCosts()
     {
-        foodCosts.Add(30);
-        foodCosts.Add(100);
-        foodCosts.Add(200);
+        scrapCosts.Add(30);
+        scrapCosts.Add(100);
+        scrapCosts.Add(200);
 
         foodCosts.Add(30);
         foodCosts.Add(100);
@@ -44,7 +44,6 @@ public class Building : MonoBehaviour
         }
         int currentCount = 0;
         int columns = 5;
-        int row = 0;
         for(int curRow = 0; curRow < 100; curRow++)
         {
             for (int curCol = 0; curCol < columns; curCol++)
