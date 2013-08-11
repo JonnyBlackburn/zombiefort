@@ -47,6 +47,8 @@ public class WorkableBuilding : Building {
     {
         if (currentBuildingState >= buildingPhases.Length) return;
         buildingPhases[currentBuildingState].SetActive(true);
+        GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.SCRAP, -(int)scrapCosts[currentBuildingState]);
+        GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.FOOD, -(int)foodCosts[currentBuildingState]);
         currentBuildingState++;
     }
 }
