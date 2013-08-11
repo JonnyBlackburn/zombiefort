@@ -14,7 +14,7 @@ public class BuildingWindow : GUIBase {
 	void OnGUI()
     {
         width = Screen.width * 0.35f;
-        GUILayout.BeginArea(new Rect(Screen.width - width, 0, width, Screen.height));
+        GUILayout.BeginArea(new Rect(Screen.width - width, 0, width, Screen.height * 0.5f));
         GUILayout.BeginVertical("box", GUILayout.Height(Screen.height));
         if (GUILayout.Button("close", GUILayout.Width(50)))
         {
@@ -57,7 +57,11 @@ public class BuildingWindow : GUIBase {
 
     void GeneralBuildingGui()
     {
-        if (selectedBuilding.CanAffordNexPhase())
+        if (selectedBuilding.isFullyUpgraded())
+        {
+            GUILayout.Box("Building fully upgraded");
+        }
+        else if (selectedBuilding.CanAffordNexPhase())
         {
             if (GUILayout.Button("Upgrade"))
             {

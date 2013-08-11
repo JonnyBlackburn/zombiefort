@@ -1,30 +1,13 @@
 fileFormatVersion: 2
-guid: c10a9d8bd6e176943a704b0eb878a03f
+guid: c76a27e9f9dde9b4198ff7be4be8839c
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: Box001
-    100002: Cone001
-    100004: Plane001
-    100006: Tube001
-    100008: //RootNode
-    400000: Box001
-    400002: Cone001
-    400004: Plane001
-    400006: Tube001
-    400008: //RootNode
-    2300000: Box001
-    2300002: Cone001
-    2300004: Plane001
-    2300006: Tube001
-    3300000: Box001
-    3300002: Cone001
-    3300004: Plane001
-    3300006: Tube001
-    4300000: Cone001
-    4300002: Tube001
-    4300004: Box001
-    4300006: Plane001
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Scare
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -42,7 +25,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: .100000001
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

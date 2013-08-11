@@ -4,12 +4,13 @@ using System.Collections;
 public class Building : MonoBehaviour 
 {
     public bool isWorkableBuilding = false;
-    int currentBuildingState = 0;
+    protected int currentBuildingState = 0;
     public int buildingHealth = 100;
     protected ArrayList scrapCosts = new ArrayList();
     protected ArrayList foodCosts = new ArrayList();
     protected ArrayList waterCosts = new ArrayList();
     protected ArrayList ammoCosts = new ArrayList();
+    public GameObject[] buildingPhases;
 
     public GameObject[] personPositions = new GameObject[0];
 
@@ -64,6 +65,12 @@ public class Building : MonoBehaviour
         GameManager.GetInstance.GuiManager.openGUI("BuildingWindow", true, this);
     }
 
+    public bool isFullyUpgraded()
+    {
+        if (currentBuildingState >= scrapCosts.Count || currentBuildingState >= foodCosts.Count) return true;
+        else return false;
+    }
+
     public bool CanAffordNexPhase()
     {
         ResourceManager resources = GameManager.GetInstance.ResourceManger;
@@ -71,7 +78,7 @@ public class Building : MonoBehaviour
         else return false;
     }
 
-    public void UpgradeBuilding()
+    public virtual void UpgradeBuilding()
     {
         currentBuildingState++;
         transform.localScale *= 2;
