@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: cc86effe144dc3d4780929f69be2fe87
+=======
+guid: 5639bababd1d89544a776c89a4640b89
+>>>>>>> Skinning Event notification.
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
@@ -32,7 +36,11 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD
     globalScale: .100000001
+=======
+    globalScale: .00999999978
+>>>>>>> Skinning Event notification.
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

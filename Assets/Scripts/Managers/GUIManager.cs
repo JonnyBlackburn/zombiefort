@@ -12,7 +12,12 @@ namespace Assets.Scripts.Managers
     {
         ArrayList openViews = new ArrayList();
 
-        public void openGUI(string gui, bool closeOpenWindows, object data = null)
+        void Start()
+        {
+            
+        }
+
+        public void openGUI(string gui, bool closeOpenWindows, object data = null, bool isPrefab = false)
         {
             if (closeOpenWindows)
             {
@@ -25,8 +30,17 @@ namespace Assets.Scripts.Managers
                     }
                 }
             }
-            gameObject.AddComponent(gui);
-            GUIBase newView = GetComponent(gui) as GUIBase;
+            GUIBase newView;
+            if (isPrefab)
+            {
+                GameObject gameObject = Instantiate(Resources.Load(gui)) as GameObject;
+                newView = gameObject.GetComponent(gui) as GUIBase;
+            }
+            else
+            {
+                gameObject.AddComponent(gui);
+                newView = GetComponent(gui) as GUIBase;
+            }
             openViews.Add(newView);
             newView.openView(data);
         }

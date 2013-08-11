@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8540fd4a9bce7714eafc134fca9e8543
+=======
+guid: 9f2eb184c823a624dbf97842d9f23687
+>>>>>>> Skinning Event notification.
 folderAsset: yes
 DefaultImporter:
   userData: 

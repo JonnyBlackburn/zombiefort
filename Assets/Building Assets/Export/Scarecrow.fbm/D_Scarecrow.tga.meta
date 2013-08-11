@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0bcbd335d6eee464c80c2df432ee0d70
+=======
+guid: 4652482fedfd7b84896ce80e21b7a829
+>>>>>>> Skinning Event notification.
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -30,7 +34,11 @@ TextureImporter:
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   alphaIsTransparency: 1
+=======
+  alphaIsTransparency: 0
+>>>>>>> Skinning Event notification.
   textureType: -1
   buildTargetSettings: []
   userData: 

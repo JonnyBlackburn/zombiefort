@@ -18,6 +18,11 @@ namespace Assets.Scripts.GameEvents.CombatEvent
             get { return "Oh no! A Zombie horde has attacked your village!"; }
         }
 
+        public override GameEventType GameEventType
+        {
+            get { return GameEventType.CombatEvent; }
+        }
+
         protected override void Start()
         {
             GameObject zombie = GameManager.GetInstance.PeopleManager.Spawn("Zombie", new Vector3(36, 2, -7), Quaternion.identity);

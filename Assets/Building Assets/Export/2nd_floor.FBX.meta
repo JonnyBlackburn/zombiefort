@@ -1,8 +1,40 @@
 fileFormatVersion: 2
-guid: ea36161fd04d36449bce30b56e1894de
+guid: 3c105e8623a92a24fa76c150f290dbdf
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
+<<<<<<< HEAD:Assets/Building Assets/Export/water_treat.FBX.meta
+    100000: Box001
+    100002: Cone001
+    100004: Cylinder001
+    100006: Tank1
+    100008: Tube001
+    100010: //RootNode
+    100012: Plane001
+    400000: Box001
+    400002: Cone001
+    400004: Cylinder001
+    400006: Tank1
+    400008: Tube001
+    400010: //RootNode
+    400012: Plane001
+    2300000: Box001
+    2300002: Cone001
+    2300004: Cylinder001
+    2300006: Tube001
+    2300008: Plane001
+    3300000: Box001
+    3300002: Cone001
+    3300004: Cylinder001
+    3300006: Tube001
+    3300008: Plane001
+    4300000: Cone001
+    4300002: Tube001
+    4300004: Box001
+    4300006: Cylinder001
+    4300008: Plane001
+    7400000: Take 001
+=======
     100000: //RootNode
     100002: 2nd_floor
     100004: 2nd_roof
@@ -15,6 +47,7 @@ ModelImporter:
     3300002: 2nd_roof
     4300000: 2nd_floor
     4300002: 2nd_roof
+>>>>>>> Skinning Event notification.:Assets/Building Assets/Export/2nd_floor.FBX.meta
     9500000: //RootNode
   materials:
     importMaterials: 1

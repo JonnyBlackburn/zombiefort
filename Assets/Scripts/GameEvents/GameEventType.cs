@@ -11,6 +11,7 @@ namespace Assets.Scripts.GameEvents
         CharacterEvent,
         CombatEvent,
         ResourceEvent,
+        DisasterEvent,
         Any
     }
 }

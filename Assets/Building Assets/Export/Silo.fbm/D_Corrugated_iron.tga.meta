@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 92a1e35b9f602cb4994add7e3aabd544
+=======
+guid: e5003115beb287643abc51cb290d6015
+>>>>>>> Skinning Event notification.
 TextureImporter:
   serializedVersion: 2
   mipmaps:

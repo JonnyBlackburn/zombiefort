@@ -16,5 +16,10 @@ namespace Assets.Scripts.GameEvents.CharacterEvent
         {
             get { return "A survivor has found your camp!"; }
         }
+
+        public override GameEventType GameEventType
+        {
+            get { return GameEventType.CharacterEvent; }
+        }
     }
 }
