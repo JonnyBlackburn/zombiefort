@@ -35,11 +35,17 @@ namespace Assets.Scripts.GameEvents.CombatEvent
 
             random = new Random();
             int randomValue = random.Next(0, 2);
-
+			
+			if(GameManager.GetInstance.ResourceManger.Ammo > 0) 
+			{
+				GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.AMMO, -random.Next(GameManager.GetInstance.ResourceManger.Ammo / 4, GameManager.GetInstance.ResourceManger.Ammo));
+			}
+			
             switch (randomValue)
             {
                 case 0:
                     _Description += "Your defences managed to withstand them and they did no real damage.";
+					GiveAmmo();
                     break;
                 case 1:
                     KillPerson();
@@ -48,6 +54,7 @@ namespace Assets.Scripts.GameEvents.CombatEvent
                     DamageBuilding();
                     break;
             }
+			
             base.Start();
         }
 
@@ -70,11 +77,21 @@ namespace Assets.Scripts.GameEvents.CombatEvent
         private void KillPerson()
         {
             Person[] people = GameManager.GetInstance.GetGameObjectsOfType<Person>();
-            if (people.Length >= 0) return;
+            if (people.Length == 0) return;
             Person person = people.ElementAt(random.Next(people.Length));
             _Description += "They breached your defences and killed " + person.name + "!";
             Destroy(person);
             GameManager.GetInstance.PeopleManager.updateAllPeople();
         }
+
+		private void GiveAmmo()
+		{
+			if(random.Next(2) >= 1)
+			{
+				int ammoAmount = random.Next(1, 10);
+				GameManager.GetInstance.ResourceManger.updateResource(ResourceManager.AMMO, ammoAmount);
+				_Description += "The zombies dropped " + ammoAmount + " ammo.";
+			}
+		}
     }
 }

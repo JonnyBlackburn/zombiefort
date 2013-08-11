@@ -11,7 +11,7 @@ namespace Assets.Scripts.Managers
     {
         Random random = new Random();
 
-        private String[] BuildingEvents = {};
+        private String[] BuildingEvents = {"BuildingFire"};
         private String[] CombatEvents = {"ZombieHorde"};
         private String[] ResourceEvents = {};
         private String[] CharacterEvents = {"FoundSurvivor"};
