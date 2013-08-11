@@ -33,6 +33,7 @@ public class Building : MonoBehaviour
     public void initialisePlayerPositions()
     {
         Person[] allPeople = GameManager.GetInstance.PeopleManager.getAllPeople();
+        if (allPeople.Length == 0) return;
         for (var i = 0; i < allPeople.Length; i++)
         {
             allPeople[i].transform.parent = null;
