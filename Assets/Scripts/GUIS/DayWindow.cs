@@ -14,7 +14,7 @@ public class DayWindow : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUILayout.BeginArea(new Rect(Screen.width / 2 - 100, 200, background.width, background.height), background);
+		GUILayout.BeginArea(new Rect(Screen.width - background.width, Screen.height - background.height, background.width, background.height), background);
 
 		GUILayout.BeginVertical();
 

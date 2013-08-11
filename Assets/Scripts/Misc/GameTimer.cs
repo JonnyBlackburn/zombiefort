@@ -22,8 +22,8 @@ namespace Assets.Scripts.Misc
 
         private void Start()
         {
-            secondsPerSecond = 288;
-            totalGameSeconds += secondsPerSecond*Time.deltaTime;
+            secondsPerSecond = 180;
+            totalGameSeconds = 21600;
         }
 
         public string GameTime

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: b3a27d524f952f346899ca2603044bc9
+=======
+guid: e7ba41e5b42694645a4ac9a579a08bde
+>>>>>>> Adding GUIObject.prefab.
 TextureImporter:
   serializedVersion: 2
   mipmaps:
